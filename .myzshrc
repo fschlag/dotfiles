@@ -1,0 +1,17 @@
+# This file is included in .zshrc as follows:
+#
+# if [ -f ~/.myzshrc ]; then
+#	source ~/.myzshrc
+# fi
+
+# Disalbe auto cd due to performance issues
+# e.g. unknown command 'asd' took 20s to return
+unsetopt cdablevars
+
+# Custom alias
+alias l='ls -l'
+alias ll='ls -la'
+
+
+# Custom path
+export PATH=$PATH:/cygdrive/c/Users/myuser/Develop/apache-ant-1.8.1/bin
