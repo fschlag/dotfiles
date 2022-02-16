@@ -1,0 +1,4 @@
+pidByPort()
+{
+    ss -tnlp  | grep "${1}" | grep -Po "pid=\K\d+"
+}

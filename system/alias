@@ -1,0 +1,6 @@
+alias ls='lsd'
+alias l='ls -l'
+alias ll='ls -la'
+alias rm='safe-rm'
+alias xclip="xclip -selection c"
+alias mux="tmuxinator"
