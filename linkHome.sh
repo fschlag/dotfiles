@@ -3,6 +3,10 @@
 WORK_DIR="$(dirname $0)"
 LOG_FILE="${0}.log"
 
+READLINK="readlink"
+
+[[ `uname -s` == "Darwin" ]] && READLINK="greadlink"
+
 function log()
 {
     echo "$@" | tee -a "$LOG_FILE"
@@ -11,7 +15,7 @@ function log()
 log "Running $0 on $(date)"
 find $WORK_DIR/home -type f | while IFS= read -r FILE
 do
-    FILE_FULL_PATH="$(readlink -f $FILE)"
+    FILE_FULL_PATH="$($READLINK -f $FILE)"
     FILE_RELATIVE_PATH="$(echo $FILE | sed "s!^${WORK_DIR}/home/!!")"
     
     log "Installing $FILE_RELATIVE_PATH"
@@ -23,7 +27,7 @@ do
         mkdir -p "$PATH_TO_LINK_DIR"
     fi
     
-    if [ "$FILE_FULL_PATH" == "$(readlink -f $PATH_TO_LINK)" ]; then
+    if [ "$FILE_FULL_PATH" == "$($READLINK -f $PATH_TO_LINK)" ]; then
         log "$PATH_TO_LINK already installed"
     else
         if [ -f "$PATH_TO_LINK" ]; then
