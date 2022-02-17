@@ -5,8 +5,7 @@ LOG_FILE="${0}.log"
 
 function log()
 {
-    echo "$@"
-    #echo "$@" | tee -a "$LOG_FILE"
+    echo "$@" | tee -a "$LOG_FILE"
 }
 
 log "Running $0 on $(date)"
