@@ -1,4 +1,6 @@
-alias ls='lsd'
+if command -v lsd > /dev/null; then
+    alias ls='lsd'
+fi
 alias l='ls -l'
 alias ll='ls -la'
 alias mux="tmuxinator"
