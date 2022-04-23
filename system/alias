@@ -15,3 +15,7 @@ case "$(uname -s)" in
 	*)
 	;;
 esac
+
+if command -v kitty > /dev/null; then
+    alias ssh='kitty +kitten ssh'
+fi
