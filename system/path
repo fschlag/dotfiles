@@ -1,5 +1,5 @@
 # Gradle wrapper
-export PATH=$PATH:/home/fschlag/.gradle/wrapper/util
+export PATH=$PATH:$HOME/.gradle/wrapper/util
 
 # $HOME/bin
 export PATH=$PATH:$HOME/bin
