@@ -1,4 +1,6 @@
-if command -v lsd > /dev/null; then
+if command -v exa > /dev/null; then
+    alias ls='exa --long --icons --group'
+elif command -v lsd > /dev/null; then
     alias ls='lsd'
 fi
 alias l='ls -l'
