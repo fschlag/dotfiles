@@ -20,6 +20,7 @@ esac
 
 if command -v kitty > /dev/null; then
     alias ssh='kitty +kitten ssh'
+    alias icat='kitty +kitten icat'
 fi
 
 if command -v bat > /dev/null; then
