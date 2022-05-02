@@ -21,3 +21,7 @@ esac
 if command -v kitty > /dev/null; then
     alias ssh='kitty +kitten ssh'
 fi
+
+if command -v bat > /dev/null; then
+    export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+fi
