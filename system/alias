@@ -19,10 +19,11 @@ case "$(uname -s)" in
 esac
 
 if command -v kitty > /dev/null; then
-    alias ssh='kitty +kitten ssh'
     alias icat='kitty +kitten icat'
 fi
 
 if command -v bat > /dev/null; then
     export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 fi
+
+alias ssh='TERM=xterm-256color; ssh'
