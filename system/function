@@ -2,3 +2,18 @@ pidByPort()
 {
    echo `ss -tnlp  | grep "${1}" | grep -Po "pid=\K\d+"`
 }
+
+cdbg()
+{
+    FOUND=1
+    CURRENT_DIR="$PWD"
+    while [ ! -f "${CURRENT_DIR}/build.gradle" ]; do
+        CURRENT_DIR="${CURRENT_DIR}/.."
+        if [ ! -d "$CURRENT_DIR" ]; then
+            echo "No build.gradle found in hierachy"
+            FOUND=0
+            break
+        fi
+    done
+    [ "$FOUND" -eq 1 ] && cd "$CURRENT_DIR"
+}
