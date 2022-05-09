@@ -1,10 +1,10 @@
 if command -v exa > /dev/null; then
-    alias ls='exa --long --icons --group'
+    alias ls='exa'
 elif command -v lsd > /dev/null; then
     alias ls='lsd'
 fi
-alias l='ls -l'
-alias ll='ls -la'
+alias l='ls --long --icons --group'
+alias ll='l -a'
 alias mux="tmuxinator"
 
 case "$(uname -s)" in
