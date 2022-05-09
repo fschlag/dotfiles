@@ -26,4 +26,9 @@ if command -v bat > /dev/null; then
     export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 fi
 
+if command -v zoxide > /dev/null; then
+    source <(zoxide init zsh)
+    alias cd='z'
+fi
+
 alias ssh='TERM=xterm-256color; ssh'
