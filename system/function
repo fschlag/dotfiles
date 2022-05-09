@@ -1,3 +1,4 @@
+#!/usr/bin/env zsh
 pidByPort()
 {
    echo `ss -tnlp  | grep "${1}" | grep -Po "pid=\K\d+"`
@@ -16,4 +17,9 @@ cdbg()
         fi
     done
     [ "$FOUND" -eq 1 ] && cd "$CURRENT_DIR"
+}
+
+gidi()
+{
+    git diff --name-only | fzf --preview 'bat {-1} --color=always'
 }
