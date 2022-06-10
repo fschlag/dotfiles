@@ -23,3 +23,8 @@ gidi()
 {
     git diff --relative --name-only --diff-filter=d | fzf --preview 'bat {-1} --diff --color=always'
 }
+
+wttr()
+{
+    curl 'https://wttr.in/Paderborn?m&lang=de'
+}
