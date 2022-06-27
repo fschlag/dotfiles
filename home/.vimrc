@@ -15,6 +15,3 @@ set expandtab
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab cursorcolumn
 au BufNewFile,BufRead *.yaml,*.yml set et ts=2 sw=2 st=2
 
-call plug#begin()
-Plug 'airblade/vim-gitgutter'
-call plug#end()
