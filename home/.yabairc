@@ -19,6 +19,7 @@ yabai -m config split_ratio                  0.50
 yabai -m config auto_balance                 off
 yabai -m config split_ratio                  0.50
 yabai -m config window_shadow                float
+yabai -m config window_topmost               on
 
 # general space settings
 yabai -m config layout                       bsp
