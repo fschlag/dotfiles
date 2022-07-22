@@ -1,9 +1,9 @@
 if command -v exa > /dev/null; then
     alias ls='exa'
-elif command -v lsd > /dev/null; then
-    alias ls='lsd'
+    alias l='ls --long --icons --group'
+else
+    alias l='ls -l'
 fi
-alias l='ls --long --icons --group'
 alias ll='l -a'
 alias mux="tmuxinator"
 
