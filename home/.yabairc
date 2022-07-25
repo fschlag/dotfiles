@@ -32,5 +32,6 @@ yabai -m config window_gap                   6
 # Ignored apps
 yabai -m rule --add app="^System (Preferences|Information)$" manage=off
 yabai -m rule --add app="^Yubico Authenticator$" manage=off
+yabai -m rule --add app="^Stats$" manage=off
 
 echo "yabai configuration loaded.."
