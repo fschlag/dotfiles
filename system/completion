@@ -1,0 +1,12 @@
+# FZF
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Angular 
+if command -v ng > /dev/null; then
+    source <(ng completion script)
+fi
+
+# Podman
+if command -v podman > /dev/null; then
+    source <(podman completion $(basename $SHELL))
+fi
