@@ -11,3 +11,7 @@ export PATH=$PATH:$HOME/.local/bin
 if [ -d "/usr/local/opt/grep/libexec/gnubin" ]; then
     export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
 fi
+
+if [ -d "/opt/homebrew/bin" ]; then
+    export PATH="/opt/homebrew/bin:$PATH"
+fi
