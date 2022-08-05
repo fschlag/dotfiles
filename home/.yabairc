@@ -33,4 +33,7 @@ yabai -m rule --add app="^System (Preferences|Information)$" manage=off
 yabai -m rule --add app="^Yubico Authenticator$" manage=off
 yabai -m rule --add app="^Stats$" manage=off
 
+yabai -m rule --add app="^IntelliJ IDEA$" manage=off
+yabai -m signal --add event=window_created app="^IntelliJ IDEA$" action='~/.dotfiles/yabai_scripts/idea.sh'
+
 echo "yabai configuration loaded.."
