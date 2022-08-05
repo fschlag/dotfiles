@@ -26,5 +26,5 @@ gidi()
 
 wttr()
 {
-    curl 'https://wttr.in/Paderborn?m&lang=de'
+    curl "https://wttr.in/${1:-Paderborn}?m&lang=de"
 }
