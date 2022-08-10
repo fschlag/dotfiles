@@ -15,7 +15,7 @@ function log()
 log "Running $0 on $(date)"
 find $WORK_DIR/home -type f | while IFS= read -r FILE
 do
-    FILE_FULL_PATH="$($READLINK -f $FILE)"
+    FILE_FULL_PATH="$($READLINK -f "$FILE")"
     FILE_RELATIVE_PATH="$(echo $FILE | sed "s!^${WORK_DIR}/home/!!")"
     
     log "Installing $FILE_RELATIVE_PATH"
