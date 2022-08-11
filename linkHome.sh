@@ -17,6 +17,15 @@ find $WORK_DIR/home -type f | while IFS= read -r FILE
 do
     FILE_FULL_PATH="$($READLINK -f "$FILE")"
     FILE_RELATIVE_PATH="$(echo "$FILE" | sed "s!^${WORK_DIR}/home/!!")"
+
+    if grep "$FILE_RELATIVE_PATH" "$(dirname $0)/$(basename "$0" ".sh")."*".whitelist" > /dev/null; then
+        if grep "$FILE_RELATIVE_PATH" "$(dirname $0)/$(basename "$0" ".sh").$(uname -s).whitelist" > /dev/null; then
+            echo "Found $FILE_RELATIVE_PATH on whitelist for $(uname -s)"
+        else
+            echo "Did not found $FILE_RELATIVE_PATH on whitelist for $(uname -s). Not installing."
+            continue
+        fi
+    fi
     
     log "Installing $FILE_RELATIVE_PATH"
     PATH_TO_LINK="${HOME}/${FILE_RELATIVE_PATH}"
