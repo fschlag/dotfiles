@@ -1,12 +1,14 @@
 #!/usr/bin/env bash
 
 export PATH=/usr/local/bin:/opt/homebrew/bin:$PATH
-source ~/bin/i_fa.sh
+
 OUTPUT=""
+MINIMUM_NUMBER_OF_SCREENS_ON_DISPLAY_TO_SHOW=1
+
 while read display
 do
     
-    if [ "x$OUTPUT" != "x" ]; then
+    if [[ $OUTPUT ]]; then
         OUTPUT="${OUTPUT}- "
     else
         OUTPUT="🖥 "
@@ -19,6 +21,6 @@ do
             OUTPUT="${OUTPUT}${space} "
         fi
     done
-done < <(yabai -m query --displays | jq -c 'sort_by(.frame.x) | .[] | select(.spaces | length > 1) | .spaces | @sh')
+done < <(yabai -m query --displays | jq -c "sort_by(.frame.x) | .[] | select(.spaces | length > $MINIMUM_NUMBER_OF_SCREENS_ON_DISPLAY_TO_SHOW) | .spaces | @sh")
 
 echo -e "$OUTPUT"
