@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 WORK_DIR="$(dirname "$0")"
 LOG_FILE="${0}.log"
