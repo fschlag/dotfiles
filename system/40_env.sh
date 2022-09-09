@@ -5,4 +5,3 @@ export EDITOR="vim"
 
 export BAT_THEME="Dracula"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
