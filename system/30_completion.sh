@@ -1,4 +1,5 @@
 # FZF
+SHELL_NAME="$(basename $SHELL)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Angular 
@@ -8,20 +9,20 @@ fi
 
 # Podman
 if command -v podman > /dev/null; then
-    source <(podman completion $(basename $SHELL))
+    source <(podman completion ${SHELL_NAME})
 fi
 
 # kubectl
 if command -v kubectl > /dev/null; then
-    source <(kubectl completion zsh)
+    source <(kubectl completion ${SHELL_NAME})
 fi
 
 # OpenShift CLI
 if command -v oc > /dev/null; then
-    source <(oc completion zsh)
+    source <(oc completion ${SHELL_NAME})
 fi
 
 # k9s
 if command -v k9s > /dev/null; then
-    source <(k9s completion zsh)
+    source <(k9s completion ${SHELL_NAME})
 fi
