@@ -38,7 +38,10 @@ yabai -m signal --add event=application_activated action="set SHELL=/bin/sh && o
 yabai -m rule --add app="^System (Preferences|Information)$" manage=off
 yabai -m rule --add app="^Yubico Authenticator$" manage=off
 yabai -m rule --add app="^Stats$" manage=off
-
 yabai -m rule --add app="^IntelliJ IDEA$" space=^2 manage=off
+
+# Rules
+FIRST_SPACE_ON_RIGHT_DISPLAY="$(yabai -m query --displays | jq -r '[ .[] | select(.frame.x) ] | max | .spaces[0]')"
+yabai -m rule --add app="^kitty$" space="^${FIRST_SPACE_ON_RIGHT_DISPLAY}"
 
 echo "yabai configuration loaded.."
