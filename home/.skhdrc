@@ -112,26 +112,26 @@ shift + alt - x: yabai -m space --mirror x-axis
 
 # send window to desktop and follow focus
 # shift + cmd - z : yabai -m window --space next; yabai -m space --focus next
-ctrl - 1 : yabai -m space --focus 1
-ctrl - 2 : yabai -m space --focus 2
-ctrl - 3 : yabai -m space --focus 3
-ctrl - 4 : yabai -m space --focus 4
-ctrl - 5 : yabai -m space --focus 5
-ctrl - 6 : yabai -m space --focus 6
-ctrl - 7 : yabai -m space --focus 7
-ctrl - 8 : yabai -m space --focus 8
-ctrl - 9 : yabai -m space --focus 9
-ctrl - right : yabai -m space --focus next
-ctrl - left : yabai -m space --focus prev
-shift + ctrl - 1 : yabai -m window --space  1; yabai -m space --focus 1
-shift + ctrl - 2 : yabai -m window --space  2; yabai -m space --focus 2
-shift + ctrl - 3 : yabai -m window --space  3; yabai -m space --focus 3
-shift + ctrl - 4 : yabai -m window --space  4; yabai -m space --focus 4
-shift + ctrl - 5 : yabai -m window --space  5; yabai -m space --focus 5
-shift + ctrl - 6 : yabai -m window --space  6; yabai -m space --focus 6
-shift + ctrl - 7 : yabai -m window --space  7; yabai -m space --focus 7
-shift + ctrl - 8 : yabai -m window --space  8; yabai -m space --focus 8
-shift + ctrl - 9 : yabai -m window --space  9; yabai -m space --focus 9
+# ctrl - 1 : yabai -m space --focus 1
+# ctrl - 2 : yabai -m space --focus 2
+# ctrl - 3 : yabai -m space --focus 3
+# ctrl - 4 : yabai -m space --focus 4
+# ctrl - 5 : yabai -m space --focus 5
+# ctrl - 6 : yabai -m space --focus 6
+# ctrl - 7 : yabai -m space --focus 7
+# ctrl - 8 : yabai -m space --focus 8
+# ctrl - 9 : yabai -m space --focus 9
+# ctrl - right : yabai -m space --focus next
+# ctrl - left : yabai -m space --focus prev
+shift + ctrl - 1 : yabai -m window --space  1; osascript -e 'tell application "System Events" to key code 18 using control down'
+shift + ctrl - 2 : yabai -m window --space  2; osascript -e 'tell application "System Events" to key code 19 using control down'
+shift + ctrl - 3 : yabai -m window --space  3; osascript -e 'tell application "System Events" to key code 20 using control down'
+shift + ctrl - 4 : yabai -m window --space  4; osascript -e 'tell application "System Events" to key code 21 using control down'
+shift + ctrl - 5 : yabai -m window --space  5; osascript -e 'tell application "System Events" to key code 22 using control down'
+shift + ctrl - 6 : yabai -m window --space  6; osascript -e 'tell application "System Events" to key code 23 using control down'
+shift + ctrl - 7 : yabai -m window --space  7; osascript -e 'tell application "System Events" to key code 24 using control down'
+shift + ctrl - 8 : yabai -m window --space  8; osascript -e 'tell application "System Events" to key code 25 using control down'
+shift + ctrl - 9 : yabai -m window --space  9; osascript -e 'tell application "System Events" to key code 26 using control down'
 
 # focus monitor
 # ctrl + alt - z  : yabai -m display --focus prev
@@ -170,7 +170,9 @@ shift + alt -s : yabai -m window --swap mouse
 shift + alt - t : yabai -m window --toggle float;\
            yabai -m window --grid 4:4:1:1:2:2
 
+# Open finder
 alt - f : open ~
+
 # toggle sticky(+float), topmost, picture-in-picture
 # alt - p : yabai -m window --toggle sticky;\
 #           yabai -m window --toggle topmost;\
