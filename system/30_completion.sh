@@ -26,3 +26,8 @@ fi
 if command -v k9s > /dev/null; then
     source <(k9s completion ${SHELL_NAME})
 fi
+
+# helm
+if command -v helm > /dev/null; then
+    source <(helm completion ${SHELL_NAME})
+fi
