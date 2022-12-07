@@ -34,7 +34,7 @@ yabai -m signal --add event=window_focused action="set SHELL=/bin/sh && open -g 
 yabai -m signal --add event=application_activated action="set SHELL=/bin/sh && open -g \"xbar://app.xbarapp.com/refreshPlugin?path=yabai-spaces.sh\""
 
 # Ignored apps
-yabai -m rule --add app="^System (Preferences|Information)$" manage=off
+yabai -m rule --add app="^System (Preferences|Information|Settings)$" manage=off
 yabai -m rule --add app="^Yubico Authenticator$" manage=off
 yabai -m rule --add app="^Stats$" manage=off
 yabai -m rule --add app="^IntelliJ IDEA$" space=^2 manage=off
