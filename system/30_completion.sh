@@ -7,7 +7,7 @@ if command -v ng > /dev/null; then
     source <(ng completion script)
 fi
 
-COMPLETION_SCRIPTS=( kubectl oc k9s helm )
+COMPLETION_SCRIPTS=( kubectl oc k9s helm datree argocd)
 
 for SCRIPT in "${COMPLETION_SCRIPTS[@]}"
 do
