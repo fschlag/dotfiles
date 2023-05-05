@@ -1,10 +1,9 @@
-# Wildfly/JBoss Home
-export JBOSS_HOME="${HOME}/Development/tools/wildfly-current"
+# For git signing etc.
+export GPG_TTY=$(tty)
 
 export EDITOR="vim"
 
 export BAT_THEME="Dracula"
-
 
 # Set the default kube context if present
 DEFAULT_KUBE_CONTEXTS="$HOME/.kube/config"
