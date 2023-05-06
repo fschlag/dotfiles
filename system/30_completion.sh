@@ -1,6 +1,10 @@
 # FZF
 SHELL_NAME="$(basename $SHELL)"
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+FZF_VER="$(fzf --version | cut -d' ' -f1)"
+if [ -d "/opt/homebrew/Cellar/fzf/${FZF_VER}/shell/" ]; then
+    source "/opt/homebrew/Cellar/fzf/${FZF_VER}/shell/completion.zsh"
+    source "/opt/homebrew/Cellar/fzf/${FZF_VER}/shell/key-bindings.zsh"
+fi
 
 # Angular 
 if command -v ng > /dev/null; then
