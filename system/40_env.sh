@@ -23,3 +23,7 @@ do
     export KUBECONFIG="$contextFile:$KUBECONFIG"
 done
 IFS="$OIFS"
+
+if command -v go > /dev/null; then
+    export GOPATH=$(go env GOPATH)
+fi
