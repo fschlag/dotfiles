@@ -26,7 +26,7 @@ if command -v bat > /dev/null; then
     export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 fi
 
-alias ssh='TERM=xterm-256color; ssh'
+alias ssh256='TERM=xterm-256color; ssh'
 
 if command -v lazygit > /dev/null; then
     alias gg="lazygit"
