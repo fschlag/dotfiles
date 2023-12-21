@@ -5,7 +5,6 @@ else
     alias l='ls -l'
 fi
 alias ll='l -a'
-alias mux="tmuxinator"
 
 case "$(uname -s)" in
 	Linux*)
