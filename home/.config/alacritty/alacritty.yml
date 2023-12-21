@@ -1,6 +1,18 @@
 general:
   live_config_reload: true
 
+shell:
+  program: /bin/zsh
+  args:
+    - -l
+    - -c
+    - "tmux attach || tmux"
+
+window:
+  padding:
+    x: 3
+    y: 7
+
 font:
   normal:
     family: FiraCode Nerd Font
