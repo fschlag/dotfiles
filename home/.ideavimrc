@@ -1,0 +1,36 @@
+""" Leader Key
+let mapleader=" "
+
+""" Multi-Cursor
+Plug 'terryma/vim-multiple-cursors'
+map mc <A-n>
+map mx <A-x>
+map mp <A-p>
+
+""" Surround
+set surround
+
+""" Repeat
+set repeat
+
+""" Terminal
+nnoremap <c-t> :action ActivateTerminalToolWindow<CR>
+
+""" Navigation
+nnoremap <Leader>% :action MoveTabRight<CR>
+nnoremap <Leader>"" :action MoveTabDown<CR>
+nnoremap <Leader>w :action MoveEditorToOppositeTabGroup<CR>
+nnoremap <Leader><Leader> :action ChangeSplitOrientation<CR>
+
+nnoremap <TAB> :action PreviousTab<CR>
+nnoremap <s-TAB> :action NextTab<CR>
+
+nnoremap <Leader><Up> <c-w>k
+nnoremap <Leader><Down> <c-w>j
+nnoremap <Leader><Left> <c-w>h
+nnoremap <Leader><Right> <c-w>l
+
+nnoremap <c-x> :action ShowErrorDescription<CR>
+
+set visualbell
+set noerrorbells
