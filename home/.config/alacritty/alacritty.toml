@@ -43,8 +43,8 @@ key = "Back"
 mods = "Alt"
 
 [shell]
-args = ["-l", "-c", "tmux attach || tmux"]
-program = "/bin/zsh"
+args = ["-l", "-c", "/opt/homebrew/bin/tmux attach || /opt/homebrew/bin/tmux || zsh"]
+program = "/opt/homebrew/bin/zsh"
 
 [window.padding]
 x = 3
