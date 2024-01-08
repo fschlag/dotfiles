@@ -33,6 +33,8 @@ nnoremap <Leader><Right> <c-w>l
 nnoremap <Leader>m :action PreviousProjectWindow<CR>
 nnoremap <Leader>n :action NextProjectWindow<CR>
 
+nnoremap <Leader>g :action GotoImplementation<CR>
+
 nnoremap <c-x> :action ShowErrorDescription<CR>
 
 set visualbell
