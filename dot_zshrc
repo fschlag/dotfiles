@@ -13,9 +13,6 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
-export LANG=en_US.UTF-8
-export LC_ALL="C"
-
 for DOTFILE in `find ${HOME}/.env | sort`
 do
   [ -f "$DOTFILE" ] && source "$DOTFILE"
