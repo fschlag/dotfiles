@@ -6,3 +6,8 @@ export LS_OPTIONS='--color=auto'
 eval "$(dircolors)"
 alias ls='ls $LS_OPTIONS'
 
+for DOTFILE in `find ${HOME}/.env | sort`
+do
+  [ -f "$DOTFILE" ] && source "$DOTFILE"
+done
+
