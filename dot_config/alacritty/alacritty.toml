@@ -1,4 +1,4 @@
-import = ["~/.config/alacritty/one_dark.toml"]
+import = ["~/.config/alacritty/dracula.toml"]
 
 [font]
 size = 15.0
