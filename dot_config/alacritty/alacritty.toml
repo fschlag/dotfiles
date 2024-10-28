@@ -1,4 +1,3 @@
-import = ["~/.config/alacritty/dracula.toml"]
 
 [font]
 size = 15.0
@@ -42,10 +41,15 @@ chars = "\u001B\u007F"
 key = "Back"
 mods = "Alt"
 
-[shell]
+[terminal.shell]
 args = ["-l", "-c", "/opt/homebrew/bin/tmux attach || /opt/homebrew/bin/tmux || zsh"]
 program = "/opt/homebrew/bin/zsh"
 
 [window.padding]
 x = 3
 y = 7
+
+[general]
+import = ["~/.config/alacritty/dracula.toml"]
+
+[terminal]
