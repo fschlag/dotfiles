@@ -1,3 +1,5 @@
+# START_TIME="$(gdate +%s%N | cut -b1-13)"
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -17,3 +19,7 @@ for DOTFILE in `find ${HOME}/.env | sort`
 do
   [ -f "$DOTFILE" ] && source "$DOTFILE"
 done
+
+# END_TIME="$(gdate +%s%N | cut -b1-13)"
+
+# echo "Init took $(($END_TIME - $START_TIME))ms"
