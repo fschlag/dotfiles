@@ -21,7 +21,7 @@ cdbg()
 
 gidi()
 {
-    git diff --relative --name-only --diff-filter=d | fzf --preview 'bat {-1} --diff --color=always'
+    git diff --relative --name-only --diff-filter=d | fzf --preview 'git diff {-1} | diff-so-fancy'
 }
 
 wttr()

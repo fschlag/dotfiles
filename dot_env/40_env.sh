@@ -31,3 +31,9 @@ IFS="$OIFS"
 if command -v go > /dev/null; then
     export GOPATH=$(go env GOPATH)
 fi
+
+if command -v diff-so-fancy > /dev/null; then
+    git config --global core.pager "diff-so-fancy | less --tabs=4 -RF"
+    git config --global interactive.diffFilter "diff-so-fancy --patch"
+fi
+
