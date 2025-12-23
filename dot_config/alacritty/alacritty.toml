@@ -53,3 +53,7 @@ y = 7
 import = ["~/.config/alacritty/dracula.toml"]
 
 [terminal]
+
+[env]
+LC_CTYPE = "C.UTF-8"
+LANG = "C.UTF-8"
