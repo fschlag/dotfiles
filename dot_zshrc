@@ -15,9 +15,8 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
-for DOTFILE in `find ${HOME}/.env | sort`
-do
-  [ -f "$DOTFILE" ] && source "$DOTFILE"
+for DOTFILE in ${HOME}/.env/*.sh(N); do
+  source "$DOTFILE"
 done
 
 # END_TIME="$(gdate +%s%N | cut -b1-13)"

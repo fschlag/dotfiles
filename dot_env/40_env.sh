@@ -11,29 +11,22 @@ export BAT_THEME="Dracula"
 
 # Set the default kube context if present
 DEFAULT_KUBE_CONTEXTS="$HOME/.kube/config"
-if test -f "${DEFAULT_KUBE_CONTEXTS}"
-then
+if test -f "${DEFAULT_KUBE_CONTEXTS}"; then
   export KUBECONFIG="$DEFAULT_KUBE_CONTEXTS"
 fi
 
 # Additional contexts should be in ~/.kube/custom-contexts/
 CUSTOM_KUBE_CONTEXTS="$HOME/.kube/custom-contexts"
-mkdir -p "${CUSTOM_KUBE_CONTEXTS}"
+[[ -d "${CUSTOM_KUBE_CONTEXTS}" ]] || mkdir -p "${CUSTOM_KUBE_CONTEXTS}"
 
-OIFS="$IFS"
-IFS=$'\n'
-for contextFile in `find "${CUSTOM_KUBE_CONTEXTS}" -type f -name "*.yml"`
-do
+for contextFile in "${CUSTOM_KUBE_CONTEXTS}"/*.yml(N); do
     export KUBECONFIG="$contextFile:$KUBECONFIG"
 done
-IFS="$OIFS"
 
+# Go - use default GOPATH instead of spawning subprocess
 if command -v go > /dev/null; then
-    export GOPATH=$(go env GOPATH)
+    export GOPATH="${GOPATH:-$HOME/go}"
 fi
 
-if command -v diff-so-fancy > /dev/null; then
-    git config --global core.pager "diff-so-fancy | less --tabs=4 -RF"
-    git config --global interactive.diffFilter "diff-so-fancy --patch"
-fi
-
+# diff-so-fancy: gitconfig is managed by chezmoi/gitconfig directly
+# No need to run `git config --global` on every shell startup

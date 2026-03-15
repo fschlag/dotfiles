@@ -1,4 +1,4 @@
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-if echo "$SHELL" | grep -q "zsh"; then
+if [[ -n "$ZSH_VERSION" ]]; then
     [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 fi

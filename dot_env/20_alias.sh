@@ -6,15 +6,13 @@ else
 fi
 alias ll='l -a'
 
-case "$(uname -s)" in
-	Linux*)
+case "$OSTYPE" in
+	linux*)
 		alias copy2clipboard="xclip -selection c"
 		;;
-	Darwin*)
+	darwin*)
 		alias copy2clipboard="pbcopy"
 		;;
-	*)
-	;;
 esac
 
 if command -v bat > /dev/null; then
