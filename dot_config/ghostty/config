@@ -1,0 +1,45 @@
+# Theme
+theme = Dracula
+
+# Font
+font-family = FiraCode Nerd Font
+font-style = Regular
+font-style-bold = Medium
+font-size = 15
+font-thicken = true
+
+# Window
+window-padding-x = 3
+window-padding-y = 7
+
+# macOS Icon — Dracula-themed
+macos-icon = custom-style
+macos-icon-frame = plastic
+macos-icon-ghost-color = #f8f8f2
+macos-icon-screen-color = #282a36,#6272a4,#bd93f9
+
+# Shell — launch tmux on startup
+command = /opt/homebrew/bin/zsh -l -c "/opt/homebrew/bin/tmux attach || /opt/homebrew/bin/tmux || zsh"
+
+# Bell — title emoji + border flash, no dock bounce
+bell-features = no-attention,title,border
+
+# Keybindings
+# Alt+Left/Right — word navigation
+keybind = alt+left=text:\x1bb
+keybind = alt+right=text:\x1bf
+# Cmd+Left/Right — line start/end (in AppCursor mode these are already default)
+keybind = super+left=text:\x1bOH
+keybind = super+right=text:\x1bOF
+# Cmd+Backspace — delete to line start
+keybind = super+backspace=text:\x15
+# Alt+Backspace — delete word
+keybind = alt+backspace=text:\x1b\x7f
+
+# Environment
+env = LC_CTYPE=C.UTF-8
+env = LANG=C.UTF-8
+
+# Live reload
+auto-update = check
+quit-after-last-window-closed = true
