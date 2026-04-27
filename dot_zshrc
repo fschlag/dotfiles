@@ -22,3 +22,7 @@ done
 # END_TIME="$(gdate +%s%N | cut -b1-13)"
 
 # echo "Init took $(($END_TIME - $START_TIME))ms"
+
+if command -v zoxide > /dev/null; then
+    eval "$(zoxide init zsh)"
+fi
