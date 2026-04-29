@@ -47,7 +47,7 @@ if [[ -n "$ZSH_VERSION" ]] && command -v ng > /dev/null; then
     compdef '_lazy_ng_completion && _ng_completion' ng 2>/dev/null
 fi
 
-COMPLETION_SCRIPTS=( kubectl oc k9s helm datree argocd podman flux yq grafanactl )
+COMPLETION_SCRIPTS=( kubectl oc k9s helm datree argocd podman flux yq gcx )
 
 for SCRIPT in "${COMPLETION_SCRIPTS[@]}"; do
     _cache_completion "${SCRIPT}"
