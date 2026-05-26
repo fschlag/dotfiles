@@ -24,5 +24,8 @@ if command -v go > /dev/null; then
     export GOPATH="${GOPATH:-$HOME/go}"
 fi
 
+# Always install brew cask to the user dir
+export HOMEBREW_CASK_OPTS="--appdir=${HOME}/Applications"
+
 # diff-so-fancy: gitconfig is managed by chezmoi/gitconfig directly
 # No need to run `git config --global` on every shell startup
