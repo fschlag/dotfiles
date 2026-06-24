@@ -1,28 +1,27 @@
-# START_TIME="$(gdate +%s%N | cut -b1-13)"
+eval "$(/opt/homebrew/bin/brew shellenv)"
+fpath=(~/.zsh_completion_cache $fpath)
 
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+autoload -Uz compinit
+compinit
 
-export ZSH="$HOME/.oh-my-zsh"
+# zinit install
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+source "${ZINIT_HOME}/zinit.zsh"
 
-ZSH_THEME="powerlevel10k/powerlevel10k"
-
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
-
-source $ZSH/oh-my-zsh.sh
+# zinit plugins
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-syntax-highlighting
 
 for DOTFILE in ${HOME}/.env/*.sh(N); do
   source "$DOTFILE"
 done
 
-# END_TIME="$(gdate +%s%N | cut -b1-13)"
-
-# echo "Init took $(($END_TIME - $START_TIME))ms"
-
 if command -v zoxide > /dev/null; then
     eval "$(zoxide init zsh)"
+fi
+
+if command -v starship > /dev/null; then
+    eval "$(starship init zsh)"
 fi

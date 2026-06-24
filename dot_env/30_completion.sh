@@ -1,3 +1,4 @@
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # Determine shell type once
 _SHELL_NAME="${ZSH_VERSION:+zsh}"
 _SHELL_NAME="${_SHELL_NAME:-bash}"
