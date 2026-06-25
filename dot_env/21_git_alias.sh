@@ -1,3 +1,14 @@
+git_current_branch() {
+  local ref
+  ref=$(git symbolic-ref --quiet HEAD 2>/dev/null)
+  local ret=$?
+  if [[ $ret != 0 ]]; then
+    [[ $ret == 128 ]] && return
+    ref=$(git rev-parse --short HEAD 2>/dev/null) || return
+  fi
+  echo ${ref#refs/heads/}
+}
+
 alias gst='git status'
 alias gss='git status -s'
 alias ga='git add'
@@ -10,6 +21,7 @@ alias gb='git branch'
 alias gd='git diff'
 alias gdca='git diff --cached'
 alias gp='git push'
+alias gpf='git push --force-with-lease --force-if-includes'
 alias gl='git pull'
 alias gf='git fetch'
 alias glog='git log --oneline --decorate --graph'
@@ -33,3 +45,7 @@ alias gpr='git pull --rebase'
 alias gprv='git pull --rebase -v'
 alias gpra='git pull --rebase --autostash'
 alias gprav='git pull --rebase --autostash -v'
+
+alias gpsupf='git push --set-upstream origin $(git_current_branch) --force-with-lease --force-if-includes'
+alias gpsup='git push --set-upstream origin $(git_current_branch)'
+
