@@ -25,3 +25,24 @@ fi
 if command -v starship > /dev/null; then
     eval "$(starship init zsh)"
 fi
+
+autoload -Uz add-zsh-hook
+
+_tmux_window_name_preexec() {
+    [[ -n "${TMUX:-}" && -x "$HOME/.config/tmux/window-name.sh" ]] || return 0
+
+    local -a command_words
+    command_words=(${(z)1})
+    "$HOME/.config/tmux/window-name.sh" \
+        --pane "${TMUX_PANE:-}" --path "$PWD" -- "${command_words[@]}"
+}
+
+_tmux_window_name_precmd() {
+    [[ -n "${TMUX:-}" && -x "$HOME/.config/tmux/window-name.sh" ]] || return 0
+
+    "$HOME/.config/tmux/window-name.sh" \
+        --pane "${TMUX_PANE:-}" --path "$PWD" --
+}
+
+add-zsh-hook preexec _tmux_window_name_preexec
+add-zsh-hook precmd _tmux_window_name_precmd
