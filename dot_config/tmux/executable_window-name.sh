@@ -6,9 +6,14 @@ set -euo pipefail
 
 pane="${TMUX_PANE:-}"
 path=""
+git_only=false
 
 while [[ $# -gt 0 ]]; do
     case "$1" in
+        --git-only)
+            git_only=true
+            shift
+            ;;
         --pane)
             [[ $# -ge 2 ]] || {
                 echo "Error: --pane requires a value" >&2
@@ -61,7 +66,9 @@ fi
 name=""
 color_key=""
 if git_context="$(git -C "$path" rev-parse --show-toplevel --abbrev-ref HEAD 2>/dev/null)"; then
-    [[ ${#command_args[@]} -gt 0 ]] && exit 0
+    if ! $git_only && [[ ${#command_args[@]} -gt 0 ]]; then
+        exit 0
+    fi
 
     git_root="${git_context%%$'\n'*}"
     git_branch="${git_context#*$'\n'}"
@@ -79,6 +86,8 @@ if git_context="$(git -C "$path" rev-parse --show-toplevel --abbrev-ref HEAD 2>/
     project_name="${project_name#aviatar-ea-}"
     name="$project_name:$git_branch"
     color_key="$project_name"
+elif $git_only; then
+    exit 0
 elif [[ ${#command_args[@]} -eq 0 ]]; then
     name="$(basename "$path")"
     color_key="$name"
