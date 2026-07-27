@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# ============================================================================
+# Reload tmux config into any running server after chezmoi applies it.
+#
+# `chezmoi update` writes the new tmux.conf to disk but the running tmux
+# server keeps its old, already-parsed config until you restart the session.
+# This sources the fresh config so changes take effect immediately.
+#
+# run_onchange_ means chezmoi re-runs this only when the rendered content
+# below changes. The hash line ties that to tmux.conf's contents, so the
+# reload fires exactly when the config actually changed — not on every apply.
+#
+# tmux.conf hash: {{ include "dot_config/tmux/tmux.conf" | sha256sum }}
+# ============================================================================
+
+set -euo pipefail
+
+readonly TMUX_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/tmux"
+
+if command -v tmux >/dev/null 2>&1 && tmux list-sessions >/dev/null 2>&1; then
+    tmux source-file "$TMUX_DIR/tmux.conf" >/dev/null 2>&1 || true
+    echo "Reloaded running tmux config"
+else
+    echo "No running tmux server, nothing to reload"
+fi
