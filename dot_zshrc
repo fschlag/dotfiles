@@ -1,5 +1,6 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
-fpath=(~/.zsh_completion_cache $fpath)
+typeset -U fpath
+fpath=(~/.zsh_completion_cache "${HOMEBREW_PREFIX}/share/zsh/functions" $fpath)
 
 autoload -Uz compinit
 compinit
