@@ -19,7 +19,9 @@ macos-icon-ghost-color = #f8f8f2
 macos-icon-screen-color = #282a36,#6272a4,#bd93f9
 
 # Shell — launch tmux on startup (fzf menu: new session vs. attach to an existing one)
-command = /opt/homebrew/bin/zsh -l -c "$HOME/.config/tmux/tmux-launch.sh || exec zsh"
+# zsh path is resolved at `chezmoi apply` time (lookPath) so this works with
+# Homebrew (mac/linuxbrew) or a plain system zsh on Linux.
+command = {{ lookPath "zsh" | default "/bin/zsh" }} -l -c "$HOME/.config/tmux/tmux-launch.sh || exec zsh"
 
 # Bell — title emoji + border flash, no dock bounce
 bell-features = no-attention,title,border,audio

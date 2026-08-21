@@ -1,4 +1,14 @@
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# zsh-autosuggestions - find it under brew (mac/linuxbrew) or common Linux package paths
+if command -v brew > /dev/null 2>&1; then
+    _zsh_autosuggestions="$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+elif [[ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
+    _zsh_autosuggestions=/usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+elif [[ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
+    _zsh_autosuggestions=/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
+[[ -n "$_zsh_autosuggestions" && -f "$_zsh_autosuggestions" ]] && source "$_zsh_autosuggestions"
+unset _zsh_autosuggestions
+
 # Determine shell type once
 _SHELL_NAME="${ZSH_VERSION:+zsh}"
 _SHELL_NAME="${_SHELL_NAME:-bash}"
